@@ -15,7 +15,7 @@
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
-            <a href="#services">Services</a>
+            <a href="#skill">Skills</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -56,16 +56,16 @@
         </div>
     </section>
 
-    <section class="section" id="section">
+    <section class="skill" id="skill">
         <h2 class="heading reveal">What can I <span>help with?</span></h2>
-        <div class="services-container">
+        <div class="skills-container">
             
-            <div class="services-box reveal">
+            <div class="skills-box reveal">
                 <i class='bx bx-code-alt'></i>
                 <h3>Software Development</h3>
                 <p>Proyek pemrograman dan analisis data dari projek dalam perkuliahan Ilmu Komputer.</p>
                 
-                <a href="javascript:void(0)" class="btn service-btn"
+                <a href="javascript:void(0)" class="btn skill-btn"
                 data-image="gambar-coding.jpg" 
                 data-title="Software Development"
                 data-desc="Saya menyediakan jasa pembuatan aplikasi berbasis web dan mobile, serta analisis data menggunakan Python. Layanan mencakup perancangan database, backend API, hingga frontend yang responsif.">
@@ -73,12 +73,12 @@
                 </a>
             </div>
 
-            <div class="services-box reveal">
+            <div class="skills-box reveal">
                 <i class='bx bxs-paint'></i>
                 <h3>Creative Design</h3>
                 <p>Mengelola konten visual untuk kebutuhan organisasi, media publikasi, dan komunikasi internal.</p>
                 
-                <a href="javascript:void(0)" class="btn service-btn"
+                <a href="javascript:void(0)" class="btn skill-btn"
                 data-image="gambar-desain.jpg"
                 data-title="Creative Design"
                 data-desc="Layanan desain grafis untuk kebutuhan sosial media (Instagram feeds/story), poster event, banner, dan layout presentasi. Saya menggunakan tools seperti Adobe Illustrator dan Canva.">
@@ -86,12 +86,12 @@
                 </a>
             </div>
 
-            <div class="services-box reveal">
+            <div class="skills-box reveal">
                 <i class='bx bxs-happy'></i>
                 <h3>Assistance & Tutoring</h3>
                 <p>Mendampingi pembelajaran dan memberikan bimbingan dengan pendekatan komunikatif.</p>
                 
-                <a href="javascript:void(0)" class="btn service-btn"
+                <a href="javascript:void(0)" class="btn skill-btn"
                 data-image="gambar-tutor.jpg"
                 data-title="Assistance & Tutoring"
                 data-desc="Membantu rekan mahasiswa atau pelajar dalam memahami materi dasar pemrograman, logika algoritma, dan penggunaan tools produktivitas. Pendekatan yang santai namun terstruktur.">
@@ -227,14 +227,14 @@
         </div>
     </div>
 
-    <div id="serviceModal" class="modal">
+    <div id="skillModal" class="modal">
         <div class="modal-content">
-            <span class="close-service">&times;</span>
+            <span class="close-skill">&times;</span>
             
-            <img src="" id="service-modal-img" alt="Service Image">
+            <img src="" id="skill-modal-img" alt="Skill Image">
             
-            <h2 id="service-modal-title">Service Title</h2>
-            <p id="service-modal-desc">Description goes here...</p>
+            <h2 id="skill-modal-title">Skill Title</h2>
+            <p id="skill-modal-desc">Description goes here...</p>
         </div>
     </div>
 
@@ -369,15 +369,15 @@
 
         // 7. LOGIKA MODAL SERVICE
     
-        const serviceModal = document.getElementById("serviceModal");
-        const serviceImg = document.getElementById("service-modal-img");
-        const serviceTitle = document.getElementById("service-modal-title");
-        const serviceDesc = document.getElementById("service-modal-desc");
-        const closeService = document.querySelector(".close-service");
-        const serviceBtns = document.querySelectorAll(".service-btn");
+        const skillModal = document.getElementById("skillModal");
+        const skillImg = document.getElementById("skill-modal-img");
+        const skillTitle = document.getElementById("skill-modal-title");
+        const skillDesc = document.getElementById("skill-modal-desc");
+        const closeSkill = document.querySelector(".close-skill");
+        const skillBtns = document.querySelectorAll(".skill-btn");
 
-        // Event Listener untuk setiap tombol Service
-        serviceBtns.forEach(btn => {
+        // Event Listener untuk setiap tombol Skill
+        skillBtns.forEach(btn => {
             btn.addEventListener("click", function() {
                 // Ambil data
                 const img = this.getAttribute("data-image");
@@ -385,25 +385,25 @@
                 const desc = this.getAttribute("data-desc");
 
                 // Masukkan ke Modal
-                serviceImg.src = img;
-                serviceTitle.innerText = title;
-                serviceDesc.innerText = desc;
+                skillImg.src = img;
+                skillTitle.innerText = title;
+                skillDesc.innerText = desc;
 
                 // Tampilkan Modal
-                serviceModal.classList.add("show");
+                skillModal.classList.add("show");
             });
         });
 
-        // Tutup Modal Service saat klik X
-        closeService.onclick = function() {
-            serviceModal.classList.remove("show");
+        // Tutup Modal Skill saat klik X
+        closeSkill.onclick = function() {
+            skillModal.classList.remove("show");
         }
 
-        // Tutup Modal Service saat klik di luar area (Overlay)
+        // Tutup Modal Skill saat klik di luar area (Overlay)
         window.onclick = function(event) {
-            // Cek apakah yang diklik adalah Service Modal ATAU Portfolio Modal
-            if (event.target == serviceModal) {
-                serviceModal.classList.remove("show");
+            // Cek apakah yang diklik adalah Skill Modal ATAU Portfolio Modal
+            if (event.target == skillModal) {
+                skillModal.classList.remove("show");
             }
             // Pastikan logika tutup portfolio modal yang lama tetap jalan
             if (typeof modal !== 'undefined' && event.target == modal) {
