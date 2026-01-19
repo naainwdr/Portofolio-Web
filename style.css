@@ -193,29 +193,28 @@ span {
 }
 
 .typing-text {
-    font-size: 3.4rem; /* Ukuran default desktop */
+    /* 1. KUNCI LEBARNYA (FIXED WIDTH) */
+    /* Ini yang bikin margin kanan-kiri STABIL (tidak goyang) */
+    width: 100%; 
+    max-width: 100%; /* Pastikan tidak bablas keluar layar */
+    
+    /* 2. FONT SIZE DINAMIS (PENTING) */
+    /* Logika: "clamp(MINIMAL, IDEAL, MAKSIMAL)" */
+    /* - Kalau layar HP sempit, dia pakai 5vw (kecil) biar muat "Data Enthusiast" */
+    /* - Kalau layar Laptop, dia mentok di 3.4rem (gede) */
+    font-size: clamp(1.8rem, 5vw, 3.4rem); 
+    
+    /* 3. PROPERTI PENDUKUNG */
     font-weight: 600;
+    min-height: 1.5em; /* Booking tinggi biar ga naik turun */
+    line-height: 1.5em;
+    display: block; /* Wajib block agar width 100% jalan */
+    margin-bottom: 2rem;
     
-    /* --- PERBAIKAN UTAMA --- */
-    
-    /* 1. KUNCI KETINGGIANNYA */
-    /* Kita kunci tingginya setara 1.2x tinggi huruf (line-height) */
-    /* Jadi mau teksnya ada atau tidak, tempatnya sudah di-booking */
-    height: 1.2em; 
-    line-height: 1.2em;
-    
-    /* 2. PAKSA SATU BARIS (Supaya tidak turun ke bawah bikin layout loncat) */
-    white-space: nowrap;
-    
-    /* 3. Pastikan elemen blok agar 'height' berfungsi */
-    display: block; 
-    
-    /* 4. Jarak aman ke tombol bawah */
-    margin-bottom: 2rem; 
-    
-    /* Tambahan: Jika teks kepanjangan, potong rapi (opsional) */
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* 4. HANDLING TEKS PANJANG */
+    white-space: nowrap; /* Paksa 1 baris */
+    overflow: hidden; /* Potong kalau masih kepanjangan */
+    text-overflow: ellipsis; /* Kasih titik-titik (...) kalau kepotong */
 }
 
 .typing-text span{
@@ -683,11 +682,6 @@ span {
 
     .contact form .input-box input {
         width: 100%;
-    }
-
-    .typing-text {
-        font-size: 2rem; 
-        margin-bottom: 1.5rem;
     }
 }
 
