@@ -192,12 +192,30 @@ span {
     margin: 2rem 0 0;
 }
 
-.typing-text{
-    font-size: 34px;
+.typing-text {
+    font-size: 3.4rem; /* Ukuran default desktop */
     font-weight: 600;
-    min-height: 1.5em; /* Menyiapkan tinggi minimal setara 1.5 baris */
-    line-height: 1.5em; /* Menjaga tinggi baris tetap konsisten */
-    display: inline-block; /* Agar properti tinggi berfungsi */
+    
+    /* --- PERBAIKAN UTAMA --- */
+    
+    /* 1. KUNCI KETINGGIANNYA */
+    /* Kita kunci tingginya setara 1.2x tinggi huruf (line-height) */
+    /* Jadi mau teksnya ada atau tidak, tempatnya sudah di-booking */
+    height: 1.2em; 
+    line-height: 1.2em;
+    
+    /* 2. PAKSA SATU BARIS (Supaya tidak turun ke bawah bikin layout loncat) */
+    white-space: nowrap;
+    
+    /* 3. Pastikan elemen blok agar 'height' berfungsi */
+    display: block; 
+    
+    /* 4. Jarak aman ke tombol bawah */
+    margin-bottom: 2rem; 
+    
+    /* Tambahan: Jika teks kepanjangan, potong rapi (opsional) */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .typing-text span{
@@ -583,6 +601,10 @@ span {
         padding: 1rem 3%;
     }
 
+    .logo {
+        font-size: 2rem;
+    }
+
     section {
         min-height: auto;
         padding: 7rem 7rem 5rem;
@@ -656,7 +678,7 @@ span {
     }
 
     .home-content h1 {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
 
     .contact form .input-box input {
@@ -664,8 +686,8 @@ span {
     }
 
     .typing-text {
-        font-size: 2.4rem; /* KECILKAN FONT DI HP agar muat 1 baris */
-        min-height: 4rem; /* Booking tinggi fix di HP */
+        font-size: 2rem; 
+        margin-bottom: 1.5rem;
         
         /* Opsi Tambahan: Mencegah teks turun baris */
         white-space: nowrap; 
