@@ -580,7 +580,7 @@ span {
 /* === RESPONSIVE BREAKPOINTS === */
 @media (max-width: 995px) {
     .header {
-        padding: 2rem 3%;
+        padding: 1rem 3%;
     }
 
     section {
@@ -644,6 +644,8 @@ span {
 
     .home {
         flex-direction: column;
+        gap: 3rem;
+        padding-top: 12rem;
     }
 
     .home-img img {
