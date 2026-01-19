@@ -618,7 +618,7 @@ span {
         visibility: hidden;     /* Ganti display:none dgn ini biar bisa dianimasi */
         opacity: 0;             /* Transparan */
         transform: translateY(-20px); /* Geser sedikit ke atas */
-        transition: .4s ease;   /* KUNCI ANIMASI: Durasi 0.4 detik */
+        transition: .3s ease;   /* KUNCI ANIMASI: Durasi 0.4 detik */
     }
 
     /* STATE AKTIF (TERBUKA) */
@@ -631,7 +631,7 @@ span {
     .navbar a {
         display: block;
         font-size: 2rem;
-        margin: 3rem 0;
+        margin: 2rem 0;
         /* Tambahkan delay kecil agar teks muncul bergantian (opsional tapi keren) */
         transition: .3s; 
     }
@@ -644,7 +644,7 @@ span {
 
     .home {
         flex-direction: column;
-        gap: 3rem;
+        gap: 2rem;
         padding-top: 12rem;
     }
 
