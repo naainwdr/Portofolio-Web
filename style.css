@@ -202,7 +202,7 @@ span {
     /* Logika: "clamp(MINIMAL, IDEAL, MAKSIMAL)" */
     /* - Kalau layar HP sempit, dia pakai 5vw (kecil) biar muat "Data Enthusiast" */
     /* - Kalau layar Laptop, dia mentok di 3.4rem (gede) */
-    font-size: clamp(1.8rem, 5vw, 3.4rem); 
+    font-size: clamp(1.8rem, 4w, 3.4rem); 
     
     /* 3. PROPERTI PENDUKUNG */
     font-weight: 600;
@@ -678,6 +678,11 @@ span {
 
     .home-content h1 {
         font-size: 3.5rem;
+    }
+
+    .typing-text {
+        width: 100%; 
+        margin-bottom: 1.5rem; 
     }
 
     .contact form .input-box input {
