@@ -602,7 +602,7 @@ span {
     }
 
     .logo {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     section {
@@ -688,12 +688,6 @@ span {
     .typing-text {
         font-size: 2rem; 
         margin-bottom: 1.5rem;
-        
-        /* Opsi Tambahan: Mencegah teks turun baris */
-        white-space: nowrap; 
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
     }
 }
 
