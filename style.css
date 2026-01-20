@@ -416,6 +416,9 @@ span {
 
 .portfolio-box img {
     width: 100%;
+    height: 30rem; 
+    object-fit: cover;
+    object-position: top center; /* Fokus crop di tengah gambar */
     transition: .5s ease;
 }
 
@@ -429,7 +432,7 @@ span {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.1), var(--main-color));
+    background: linear-gradient(rgba(0,0,0,0.1), color-mix(in srgb, var(--main-color), transparent 30%));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -467,7 +470,7 @@ span {
     font-size: 1.4rem;
     font-weight: 600;
     color: #333; /* Teks warna gelap biar terbaca di background putih */
-    margin-top: 1rem;
+    margin-top: 10rem;
     
     box-shadow: 0 .5rem 1rem rgba(0,0,0,0.2); /* Bayangan biar timbul */
     transition: .3s ease;
@@ -484,6 +487,13 @@ span {
 .portfolio-layer .read-more i {
     font-size: 1.8rem; /* Ukuran icon disesuaikan */
     color: inherit; /* Warna icon ngikutin warna teks tombol */
+}
+
+.portfolio-layer p {
+    font-size: 1.4rem;
+    align-items: center;
+    color: var(--white-color); /* Selalu putih di dalam overlay gambar */
+    margin-bottom: 2rem;
 }
 
 /* Style untuk Close Button di Skill Modal */
@@ -652,6 +662,10 @@ span {
         grid-template-columns: 1fr;
     }
 
+    .portfolio-box img {
+        height: 40rem; /* Sedikit lebih pendek biar pas di layar HP */
+    }
+
     .home {
         flex-direction: column;
         gap: 2rem;
@@ -763,8 +777,8 @@ span {
 /* Gambar di dalam Modal */
 .modal-content img {
     width: 100%;
-    max-height: 300px;
     object-fit: cover;
+    object-position: top center;
     border-radius: 1rem;
     margin-bottom: 2rem;
 }
@@ -811,47 +825,81 @@ span {
     color: var(--main-color);
 }
 
-/* Style Tombol Link Github (Card Preview Style) */
-.github-preview-btn {
+/* Container agar tombol berjejer rapi jika ada dua */
+.modal-links-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--second-bg-color);
-    padding: 1.5rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(0,0,0,0.1);
-    transition: 0.3s;
-    text-align: left;
-    margin-top: 1rem;
+    flex-direction: column; /* Susun ke bawah di HP */
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
 }
 
-.github-preview-btn:hover {
-    border-color: var(--main-color);
+/* Style Umum Tombol Platform */
+.platform-btn {
+    display: none; /* PENTING: Default-nya sembunyi dulu */
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(0,0,0,0.1); /* Border halus */
+    transition: 0.3s;
+    text-align: left;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.platform-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.github-preview-btn i {
+/* Icon Besar di Kiri */
+.platform-btn > i {
     font-size: 3rem;
-    color: var(--text-color);
+    margin-right: 1.5rem;
 }
 
-.github-preview-btn .link-info {
+/* Teks Info */
+.platform-btn .link-info {
     flex: 1;
-    margin-left: 1.5rem;
     display: flex;
     flex-direction: column;
 }
 
-.github-preview-btn .link-info span {
+.platform-btn .link-info span {
     font-size: 1.6rem;
     font-weight: 600;
     color: var(--text-color);
 }
 
-.github-preview-btn .link-info small {
+.platform-btn .link-info small {
     font-size: 1.2rem;
     color: #888;
+}
+
+/* --- WARNA SPESIFIK --- */
+
+/* GitHub Style */
+.platform-btn.github:hover {
+    border-color: var(--text-color); /* Warna border saat hover */
+}
+.platform-btn.github > i { color: var(--text-color); }
+
+/* Figma Style */
+.platform-btn.figma:hover {
+    border-color: #F24E1E; /* Warna Orange khas Figma */
+}
+.platform-btn.figma > i { color: #F24E1E; } /* Icon jadi Orange */
+
+/* Desktop: Kalau layar lebar, tombol jejer ke samping */
+@media (min-width: 768px) {
+    .modal-links-wrapper {
+        flex-direction: row; 
+    }
+    .platform-btn {
+        flex: 1; /* Bagi rata lebarnya */
+    }
 }
 
 /* Class Aktif untuk JS (Agar muncul animasi) */
