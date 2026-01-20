@@ -496,22 +496,6 @@ span {
     margin-bottom: 2rem;
 }
 
-/* Style untuk Close Button di Skill Modal */
-.close-skill {
-    color: var(--text-color);
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
-    font-size: 4rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.close-skill:hover {
-    color: var(--main-color);
-}
-
 /* Delay bertingkat untuk Skills/Portfolio Box */
 /* Kotak ke-2 muncul agak telat dikit */
 .skills-container .skills-box:nth-child(2),
@@ -791,6 +775,7 @@ span {
 
 .modal-content p {
     font-size: 1.6rem;
+    text-align: justify;
     color: var(--text-color);
     margin-bottom: 2.5rem;
     line-height: 1.6;
@@ -809,19 +794,36 @@ span {
     font-size: 1.8rem;
 }
 
-/* Tombol Close (X) */
-.close {
+/* Class Close Button (Berlaku untuk Portfolio & Skill) */
+.close, .close-skill, .close-service {
+    /* 1. GANTI POSITION JADI STICKY */
+    position: sticky; 
+    
+    /* 2. ATUR POSISI NEMPEL */
+    top: -3rem;   /* Nempel persis di langit-langit kotak modal */
+    right: -2rem; /* (Opsional karena kita pakai float di bawah) */
+    
+    /* 3. PAKSA KE KANAN */
+    float: right; 
+    
+    /* 4. AGAR TIDAK TERTIMPA TEKS SAAT SCROLL */
+    z-index: 100; 
+    padding-left: 1rem; /* Sedikit jarak biar backgroundnya nutupin teks */
+    
+    /* Style Lama Tetap Ada */
     color: var(--text-color);
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
     font-size: 4rem;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    
+    /* Sedikit perbaikan margin biar ga terlalu mepet atas */
+    margin-top: -6rem; 
+    margin-right: -2rem; 
+    padding: 0 1rem 1rem 3rem; /* Area klik diperluas dikit */
 }
 
-.close:hover {
+.close:hover, .close-skill:hover {
     color: var(--main-color);
 }
 
