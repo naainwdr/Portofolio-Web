@@ -28,7 +28,7 @@
 
     <section class="home" id="home">
         <div class="home-img">
-            <img src="image\IMG_5136.JPG" alt="Foto Profil">
+            <img src="image\nina photo.jpg" alt="Foto Profil">
         </div>
         <div class="home-content reveal">
             <h3>Hello, It's Me</h3>
@@ -48,7 +48,7 @@
         <div class="about-content reveal">
             <h2 class="heading">About <span>Me</span></h2>
             <p>Mahasiswa Ilmu Komputer yang terbiasa mengerjakan proyek berbasis pemrograman, pengolahan dan analisis data, memiliki 
-                ketertarikan di bidang kreatif seperti fotografi dan desain grafis, serta pengalaman dalam aktivitas edukatif.</p>
+                ketertarikan di bidang kreatif seperti fotografi dan desain grafis, serta berpengalaman dalam aktivitas edukatif.</p>
             <h3>Education</h3>
             <p>Universitas Pendidikan Indonesia <em>(2023 - present)<br>Computer Science Major<br></em></p>
                 <h4><b>GPA/IPK: 3,76</b></h4>
@@ -59,20 +59,17 @@
     <section class="skill" id="skill">
         <h2 class="heading reveal">What can I <span>help with?</span></h2>
         <div class="skills-container">
-            
             <div class="skills-box reveal">
                 <i class='bx bx-code-alt'></i>
-                <h3>Software Development</h3>
+                <h3>Software Projects</h3>
                 <p>Proyek pemrograman dan analisis data dari projek dalam perkuliahan Ilmu Komputer.</p>
                 
                 <a href="javascript:void(0)" class="btn skill-btn"
-                data-image="gambar-coding.jpg" 
-                data-title="Software Development"
-                data-desc="Saya menyediakan jasa pembuatan aplikasi berbasis web dan mobile, serta analisis data menggunakan Python. Layanan mencakup perancangan database, backend API, hingga frontend yang responsif.">
-                Read More
+                    data-image="image\Screenshot 2025-11-13 095811.png" 
+                    data-title="Experiences of Software Projects"
+                    data-content-id="skill-1">Read More
                 </a>
             </div>
-
             <div class="skills-box reveal">
                 <i class='bx bxs-paint'></i>
                 <h3>Creative Design</h3>
@@ -80,12 +77,10 @@
                 
                 <a href="javascript:void(0)" class="btn skill-btn"
                 data-image="gambar-desain.jpg"
-                data-title="Creative Design"
-                data-desc="Layanan desain grafis untuk kebutuhan sosial media (Instagram feeds/story), poster event, banner, dan layout presentasi. Saya menggunakan tools seperti Adobe Illustrator dan Canva.">
-                Read More
+                data-title="Experiences of Creative Design"
+                data-content-id="skill-2">Read More
                 </a>
             </div>
-
             <div class="skills-box reveal">
                 <i class='bx bxs-happy'></i>
                 <h3>Assistance & Tutoring</h3>
@@ -93,12 +88,10 @@
                 
                 <a href="javascript:void(0)" class="btn skill-btn"
                 data-image="gambar-tutor.jpg"
-                data-title="Assistance & Tutoring"
-                data-desc="Membantu rekan mahasiswa atau pelajar dalam memahami materi dasar pemrograman, logika algoritma, dan penggunaan tools produktivitas. Pendekatan yang santai namun terstruktur.">
-                Read More
+                data-title="Experiences of Assistance & Tutoring"
+                data-content-id="skill-3">Read More
                 </a>
             </div>
-
         </div>
     </section>
 
@@ -185,16 +178,25 @@
 
     <section class="contact" id="contact">
         <h2 class="heading reveal">Contact <span>Me!</span></h2>
-        <form action=""">
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+
+            <input type="hidden" name="access_key" value="212c0668-cd4c-41c2-9aed-ada217631708">
+
+            <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
             <div class="input-box reveal">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
+                <input type="text" name="nama" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
             </div>
+
             <div class="input-box reveal">
-                <input type="number" placeholder="Mobile Number">
-                <input type="text" placeholder="Email Subject">
+                <input type="number" name="nomor_hp" placeholder="Mobile Number">
+                <input type="text" name="subject" placeholder="Email Subject" required>
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+
+            <textarea name="pesan" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
+
             <input type="submit" value="Send Message" class="btn">
         </form>
     </section>
@@ -208,7 +210,7 @@
         </div>
     </footer>
 
-    // MODAL POPUP ELEMENTS
+    <!-- 8. MODAL POPUP ELEMENTS -->
     <div id="portfolioModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -234,7 +236,43 @@
             <img src="" id="skill-modal-img" alt="Skill Image">
             
             <h2 id="skill-modal-title">Skill Title</h2>
-            <p id="skill-modal-desc">Description goes here...</p>
+            <div id="skill-modal-desc">Description goes here...</div>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content success-content">
+            <i class='bx bxs-check-circle' style="font-size: 6rem; color: #00b894; margin-bottom: 1rem;"></i>
+            <h2>Thank You!</h2>
+            <p>Pesan Anda telah terkirim. Saya akan segera membalasnya. Semoga sehat selalu.</p>
+            <button id="closeSuccessBtn" class="btn">OK, Sip!</button>
+        </div>
+    </div>
+
+    <div style="display: none;">
+        <div id="skill-1">
+            <h4 style="color: var(--main-color); margin-bottom: 5px;">Web Development & Coding</h4>
+            <p style="margin-bottom: 15px;">Mengembangkan proyek berbasis web dan pemrograman melalui tugas kuliah dan eksplorasi mandiri dengan fokus pada logika, struktur, dan fungsionalitas sistem.</p>
+
+            <h4 style="color: var(--main-color); margin-bottom: 5px;">UI/UX & System Thinking</h4>
+            <p style="margin-bottom: 15px;">Merancang solusi digital yang berorientasi pengguna dengan pendekatan analisis kebutuhan dan alur sistem.</p>
+
+            <h4 style="color: var(--main-color); margin-bottom: 5px;">Data Exploration & Analysis</h4>
+            <p>Melakukan pengolahan, analisis, dan interpretasi data untuk kebutuhan akademik dan studi kasus.</p>
+        </div>
+        <div id="skill-2">
+            <h4 style="color: var(--main-color); margin-bottom: 5px;">Photographer — Caraka Muda KKIPP UPI</h4>
+            <p style="margin-bottom: 15px;">Dokumentasi visual kegiatan organisasi dan event.</p>
+
+            <h4 style="color: var(--main-color); margin-bottom: 5px;">Head of Creative Design Division — Asrama Mahasiswa UPI</h4>
+            <p style="margin-bottom: 15px;">Mengelola dan mengoordinasikan kebutuhan desain visual.</p>
+        </div>
+        <div id="skill-3">
+            <h4 style="color: var(--main-color); margin-bottom: 5px;">Practicum Teaching Assistant — Computer Networks</h4>
+            <p style="margin-bottom: 15px;">Membimbing praktikum dan membantu pemahaman materi teknis adik mahasiswa.</p>
+
+            <h4 style="color: var(--main-color); margin-bottom: 5px;">Freelance Private Tutor</h4>
+            <p style="margin-bottom: 15px;">Mengajar secara privat sesuai kebutuhan siswa.</p>
         </div>
     </div>
 
@@ -367,45 +405,135 @@
         }
 
 
-        // 7. LOGIKA MODAL SERVICE
+        // 8. LOGIKA MODAL SERVICE
     
-        const skillModal = document.getElementById("skillModal");
+        // 1. Ambil Elemen berdasarkan ID dan Class yang BARU
+        const skillModal = document.getElementById("skillModal"); // Harus match ID di HTML
         const skillImg = document.getElementById("skill-modal-img");
         const skillTitle = document.getElementById("skill-modal-title");
         const skillDesc = document.getElementById("skill-modal-desc");
         const closeSkill = document.querySelector(".close-skill");
-        const skillBtns = document.querySelectorAll(".skill-btn");
+        
+        // Ambil tombol dengan class 'skill-btn'
+        const skillBtns = document.querySelectorAll(".skill-btn"); 
 
-        // Event Listener untuk setiap tombol Skill
+        // 2. Loop Event Listener
         skillBtns.forEach(btn => {
             btn.addEventListener("click", function() {
-                // Ambil data
+                // Debugging: Cek di Console browser apakah tombol terdeteksi
+                console.log("Tombol Skill diklik!"); 
+
+                // Ambil Data
                 const img = this.getAttribute("data-image");
                 const title = this.getAttribute("data-title");
-                const desc = this.getAttribute("data-desc");
+                const contentId = this.getAttribute("data-content-id");
+                
+                // Masukkan Gambar & Judul
+                if(skillImg) skillImg.src = img;
+                if(skillTitle) skillTitle.innerText = title;
 
-                // Masukkan ke Modal
-                skillImg.src = img;
-                skillTitle.innerText = title;
-                skillDesc.innerText = desc;
-
+                // Logika Ambil Deskripsi Panjang dari Gudang Konten (Hidden Div)
+                if (contentId) {
+                    const hiddenElement = document.getElementById(contentId);
+                    if (hiddenElement) {
+                        skillDesc.innerHTML = hiddenElement.innerHTML;
+                        skillDesc.style.textAlign = "left"; // Biar rapi rata kiri
+                    } else {
+                        console.error("ID Konten tidak ditemukan: " + contentId);
+                    }
+                } 
+                
                 // Tampilkan Modal
                 skillModal.classList.add("show");
             });
         });
 
-        // Tutup Modal Skill saat klik X
-        closeSkill.onclick = function() {
-            skillModal.classList.remove("show");
+        // 3. Tutup Modal saat klik X
+        if(closeSkill) {
+            closeSkill.onclick = function() {
+                skillModal.classList.remove("show");
+            }
         }
 
-        // Tutup Modal Skill saat klik di luar area (Overlay)
+        // 4. Update Logika Window Onclick (Gabungan dengan modal lain)
         window.onclick = function(event) {
-            // Cek apakah yang diklik adalah Skill Modal ATAU Portfolio Modal
+            // Tutup Skill Modal
             if (event.target == skillModal) {
                 skillModal.classList.remove("show");
             }
-            // Pastikan logika tutup portfolio modal yang lama tetap jalan
+            
+            // Tutup Portfolio Modal (jika ada)
+            const portfolioModal = document.getElementById("portfolioModal");
+            if (portfolioModal && event.target == portfolioModal) {
+                portfolioModal.classList.remove("show");
+            }
+
+            // Tutup Success Modal (jika ada)
+            const successModal = document.getElementById("successModal");
+            if (successModal && event.target == successModal) {
+                successModal.classList.remove("show");
+            }
+        }
+
+        // 9. LOGIKA MODAL SUCCESS PESAN TERKIRIM
+
+        const contactForm = document.querySelector("form"); // Ambil elemen form
+        const successModal = document.getElementById("successModal");
+        const closeSuccessBtn = document.getElementById("closeSuccessBtn");
+        const submitBtn = contactForm.querySelector(".btn"); // Tombol kirim
+
+        contactForm.addEventListener("submit", function(e) {
+            e.preventDefault(); // 1. CEGAH HALAMAN RELOAD/PINDAH
+
+            // Ubah teks tombol jadi "Sending..." biar user tau proses berjalan
+            const originalText = submitBtn.value;
+            submitBtn.value = "Sending...";
+            submitBtn.style.opacity = "0.7";
+            submitBtn.disabled = true;
+
+            // 2. Kirim Data ke Web3Forms menggunakan Fetch API
+            const formData = new FormData(contactForm);
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            })
+            .then(async (response) => {
+                if (response.status === 200) {
+                    // 3. JIKA SUKSES:
+                    successModal.classList.add("show"); // Tampilkan Modal Sukses
+                    contactForm.reset(); // Bersihkan isi formulir
+                } else {
+                    console.log(response);
+                    alert("Ada kesalahan saat mengirim pesan. Coba lagi.");
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert("Terjadi kesalahan koneksi.");
+            })
+            .finally(() => {
+                // Kembalikan tombol seperti semula
+                submitBtn.value = originalText;
+                submitBtn.style.opacity = "1";
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Tutup Modal Sukses saat klik tombol OK
+        closeSuccessBtn.onclick = function() {
+            successModal.classList.remove("show");
+        }
+
+        // Tutup Modal saat klik di luar area (Overlay) - Update logika window.onclick yang lama
+        // Kita gabungkan logika tutup modal Portfolio, Service, dan Success di sini
+        window.onclick = function(event) {
+            if (event.target == successModal) {
+                successModal.classList.remove("show");
+            }
+            if (typeof serviceModal !== 'undefined' && event.target == serviceModal) {
+                serviceModal.classList.remove("show");
+            }
             if (typeof modal !== 'undefined' && event.target == modal) {
                 modal.classList.remove("show");
             }

@@ -715,18 +715,49 @@ span {
 
 /* Kotak Konten Modal */
 .modal-content {
-    background-color: var(--bg-color); /* Ikut tema Dark/Light */
+    background-color: var(--bg-color);
     margin: auto;
     padding: 3rem;
     border: .2rem solid var(--main-color);
     border-radius: 1.5rem;
     width: 90%;
-    max-width: 600px; /* Lebar maksimal */
+    max-width: 600px;
     text-align: center;
     position: relative;
     box-shadow: 0 0 2rem rgba(0,0,0,0.5);
+    
+    /* --- TAMBAHAN PENTING UNTUK SCROLL --- */
+    
+    /* 1. Batasi tingginya maksimal 80% - 90% dari layar HP/Laptop */
+    max-height: 85vh; 
+    
+    /* 2. Aktifkan Scroll Vertikal jika isinya melebihi batas tinggi di atas */
+    overflow-y: auto; 
+    
+    /* 3. Animasi Transform (Tetap dipertahankan) */
     transform: scale(0.8);
     transition: transform 0.3s ease;
+}
+
+/* Untuk Chrome, Edge, Safari */
+.modal-content::-webkit-scrollbar {
+    width: 8px; /* Lebar scrollbar lebih tipis */
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: transparent; /* Latar scrollbar transparan */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: var(--main-color); /* Warna batang scroll mengikuti tema (Merah/Hitam) */
+    border-radius: 20px; /* Bikin bulat lonjong */
+    border: 2px solid var(--bg-color); /* Memberi jarak/border agar terlihat rapi */
+}
+
+/* Untuk Firefox */
+.modal-content {
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) transparent;
 }
 
 /* Gambar di dalam Modal */
@@ -749,6 +780,19 @@ span {
     color: var(--text-color);
     margin-bottom: 2.5rem;
     line-height: 1.6;
+}
+
+#skill-modal-desc {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    text-align: left; /* Biar rapi rata kiri karena teksnya panjang */
+}
+
+#skill-modal-desc h4 {
+    margin-top: 1.5rem; /* Jarak antar sub-bab */
+    font-size: 1.8rem;
 }
 
 /* Tombol Close (X) */
@@ -818,4 +862,20 @@ span {
 
 .modal.show .modal-content {
     transform: scale(1);
+}
+
+/* Style Khusus untuk Modal Sukses */
+.success-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+}
+
+/* Biar tombol OK ada jarak dari teks */
+#closeSuccessBtn {
+    margin-top: 2rem;
+    min-width: 120px;
+    cursor: pointer;
 }
